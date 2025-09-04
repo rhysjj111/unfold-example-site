@@ -1,0 +1,48 @@
+[tool.poetry]
+name = "formula"
+version = "0.1.0"
+description = ""
+authors = []
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.13"
+django = "^5.2"
+django-celery-beat = "^2.8"
+django-crispy-forms = "^2.4"
+django-constance = "^4.3"
+django-debug-toolbar = "^5.2"
+django-guardian = "^3.0"
+django-import-export = "^4.3"
+django-simple-history = "^3.8"
+django-modeltranslation = "^0.19"
+django-money = "^3.5"
+django-unfold = { git = "https://github.com/unfoldadmin/django-unfold.git" }
+whitenoise = "^6.9"
+gunicorn = "^23.0"
+pillow = "^11.2"
+sentry-sdk = { extras = ["django"], version = "^2.27" }
+pygments = "^2.19"
+
+[tool.ruff]
+fix = true
+line-length = 88
+lint.select = [
+    "E",  # pycodestyle errors
+    "W",  # pycodestyle warnings
+    "F",  # pyflakes
+    "I",  # isort
+    "C",  # flake8-comprehensions
+    "B",  # flake8-bugbear
+    "UP", # pyupgrade
+]
+lint.ignore = [
+    "E501", # line too long, handled by black
+    "B008", # do not perform function calls in argument defaults
+    "C901", # too complex
+]
+exclude = ["**/migrations"]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
